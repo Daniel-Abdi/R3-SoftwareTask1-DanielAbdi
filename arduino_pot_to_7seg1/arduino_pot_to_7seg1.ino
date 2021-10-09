@@ -5,7 +5,7 @@ void setup()
 {
   pinMode(A0, INPUT);
   Serial.begin(9600);
-  for(int i = 0; i<9; ++i)
+  for(int i = 0; i<10; ++i)
   {
    pinMode(i, OUTPUT); 
   }
@@ -23,7 +23,7 @@ void loop()
   decToBin(ones, 4);
 }
     
-void decToBin(int n, int HL)
+void decToBin(int n, int offset)
     {
   	//Serial.println(n);
       int pins[4] = {0,0,0,0};
@@ -52,9 +52,9 @@ void decToBin(int n, int HL)
       for(int i = 0; i<4; i++)
       {
         //Serial.print(pins[3-i]);
-       digitalWrite((3-i)+2 + HL,pins[i]);
+       digitalWrite((3-i)+2 + offset,pins[i]);
         //Serial.print(pins[i]);
       }
-  	//Serial.println();
+  	Serial.println();
       
     }
